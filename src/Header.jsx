@@ -1,9 +1,10 @@
 import React, { useState } from "react";
 
-export default function Header({ head }) {
+export default function Header({ head, setPageSelector }) {
   const [showMenu, setShowMenu] = useState(false)
   const [selected, setSelected] =  useState('')
 
+ 
   return (
     <>
       <header className="header">
@@ -12,7 +13,7 @@ export default function Header({ head }) {
            { console.log('salam',head[0])}
 
 
-             {head.map((item,index)=> <li className={`${selected ==""?setSelected(head[0]):''} ${selected==item ? 'header-active':''}`} onClick={()=> setSelected(item)} key={index}>{item}</li>)}
+             {head.map((item,index)=> <li className={`${selected ==""?setSelected(head[0]):''} ${selected==item ? 'header-active':''}`} onClick={()=>{setPageSelector(item); setSelected(item)}} key={index}>{item}</li>)}
           </ul>
         </div>
       </header>
@@ -27,7 +28,7 @@ export default function Header({ head }) {
               </div>
              <div style={{transition: '.4s'}} className={`dorps ${showMenu?'':'hidden'}`}>
                 <ul className="drop-categories"  >
-                {head.map((item,index)=> <li  onClick={()=> setSelected(item)} key={index}>{`${selected==item?'':item}`}</li>)} 
+                {head.map((item,index)=> <li  onClick={()=>{ setSelected(item); setPageSelector(item)}} key={index}>{`${selected==item?'':item}`}</li>)} 
              </ul>
              </div>
                       

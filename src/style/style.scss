@@ -287,7 +287,6 @@
   display: flex;
   gap: 15px;
   margin-top: 30px;
-  justify-content: center;
   .button-about {
     width: 110px;
     height: 40px;
@@ -483,6 +482,10 @@
     .Timetext,
     li {
       background: #292929;
+      h3{
+        color: grey;
+    font-size: 14px;
+      }
     }
     .Timetext {
       border: 1px solid grey;
